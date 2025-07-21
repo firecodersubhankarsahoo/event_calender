@@ -3,10 +3,11 @@ import axios from 'axios';
 // Create axios instance with base configuration
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'https://event-calender-t5jy.onrender.com/api',
-  timeout: 10000,
+  timeout: 30000, // Increased timeout for Render cold starts
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: false, // Set to false for CORS
 });
 
 // Request interceptor for adding auth tokens if needed
